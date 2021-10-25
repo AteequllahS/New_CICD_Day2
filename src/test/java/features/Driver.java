@@ -38,11 +38,12 @@ public class Driver {
                     try {
                         // assign your grid server address
                         //my own server add :        34.203.236.236     that have to be placed in gridAddress
-                        String gridAddress = "54.172.202.16";
+                        String gridAddress = "54.235.53.73";
                         URL url = new URL("http://" + gridAddress + ":4444/wd/hub");
                         DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
                         desiredCapabilities.setBrowserName("chrome");
                         driver = new RemoteWebDriver(url, desiredCapabilities);
+                        driver.manage().window().maximize();
                     } catch (Exception e) {
                         e.printStackTrace();
                     }

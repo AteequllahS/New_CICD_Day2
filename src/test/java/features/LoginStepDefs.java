@@ -4,7 +4,8 @@ import features.pages.LoginPage;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.junit.Assert;
+
+import static org.junit.Assert.assertEquals;
 
 public class LoginStepDefs {
     LoginPage loginPage = new LoginPage();
@@ -26,11 +27,13 @@ public class LoginStepDefs {
 
     @Then("user should be at dashboard page")
     public void user_should_be_at_dashboard_page() {
-        Assert.assertEquals("Dashboard - Trycloud QA", Driver.getDriver().getTitle());
+        assertEquals("Dashboard - Trycloud QA", Driver.getDriver().getTitle());
     }
 
     @Then("{string} message should be displayed")
-    public void message_should_be_displayed(String string) {
+    public void message_should_be_displayed(String errorMsg) {
+        assertEquals(errorMsg, loginPage.warningMessage.getText());
+
 
     }
 }
